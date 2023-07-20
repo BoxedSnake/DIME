@@ -3,9 +3,11 @@ using DIME.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace DIME.ViewModel
 {
@@ -14,8 +16,9 @@ namespace DIME.ViewModel
         public MainPageModel() { }
         Service service = new Service();
         public List<Account> accounts;
+        public List<GroupedAccounts> groupedAccounts;
 
-        public async Task getAccounts()
+        public async Task GetAccounts()
         {
             try
             {
@@ -33,18 +36,57 @@ namespace DIME.ViewModel
 
         public List<Account> LoadAccounts()
         {
+            SortByAge();
+            SortByBalance();
 
             return accounts;
         }
-
-        public void sortByAge()
+        public List<GroupedAccounts> LoadGroups()
         {
-            accounts.Sort((x, y) => x.Age.CompareTo(y.Age));
+            SortByAge();
+            SortByBalance(); GroupByGender();
+
+            return groupedAccounts;
         }
 
-        public void sortByBalance()
+        public void SortByAge()
         {
+            accounts.Sort((x, y) => y.Age.CompareTo(x.Age));
+        }
 
+        public void SortByBalance()
+        {
+            accounts.Sort((x, y) => ParseCurrencyString(x.AccountBalance).CompareTo(ParseCurrencyString(y.AccountBalance)));
+
+        }
+
+        public void GroupByGender()
+        {
+           var grouped = accounts.GroupBy(x => x.Gender).ToList();
+            foreach (var gender in grouped)
+            {
+                GroupedAccounts group = new GroupedAccounts();
+                group.Title = gender.Key;
+                foreach (var item in gender)
+                {
+                    group.Accounts.Add(item);
+                }
+                groupedAccounts.Add(group);
+            }
+
+        }
+
+        public static decimal ParseCurrencyString(string currencyString)
+        {
+            if (string.IsNullOrWhiteSpace(currencyString))
+            {
+                throw new ArgumentException("Currency string cannot be null or empty.");
+            }
+
+            // Remove non-numeric characters and parse the value to a decimal
+            decimal amount = decimal.Parse(currencyString.Replace("$", "").Replace(",", ""), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+
+            return amount;
         }
 
     }

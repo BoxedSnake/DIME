@@ -12,13 +12,9 @@
                     <Label Text="Name"
                            HorizontalOptions="CenterAndExpand"/>
                     <Label Text="Picture" HorizontalOptions="CenterAndExpand"/>
-                    <Button Text="Age"
-                            x:Name="bt_Age"
-                            Clicked="Bt_Age_Clicked"
+                    <Label Text="Age"
                            HorizontalOptions="CenterAndExpand" />
-                    <Button Text="Balance"
-                            x:Name="bt_Balance"
-                            Clicked="bt_Balance_Clicked"
+                    <Label Text="Balance"
                            HorizontalOptions="EndAndExpand" />
 
                 </StackLayout>
@@ -42,7 +38,9 @@
                         </StackLayout>
                     </ViewCell>
                     </DataTemplate>
+                    
                 </ListView.ItemTemplate>
+            
         </ListView>
     </StackLayout>
 

@@ -6,7 +6,7 @@ namespace DIME.Model
 {
     public class Account
     {
-        public string _Id { get; set; }
+        public string Id { get; set; }
         public bool IsActive { get; set; }
         public string AccountBalance { get; set; }
         public string Picture { get; set; }

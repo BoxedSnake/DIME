@@ -12,36 +12,24 @@ namespace DIME
 {
     public partial class MainPage : ContentPage
     {
-        
-        MainPageModel model = new MainPageModel();
+
+        readonly MainPageModel model = new MainPageModel();
         public MainPage()
         {
             InitializeComponent();
+            _ = SetAccounts();
 
-           
-
-            Task task = SetAccounts();
+            
 
         }
         public async Task SetAccounts()
         {
-            await model.getAccounts();
+            await model.GetAccounts();
             LV_Accounts.ItemsSource = model.LoadAccounts();
+            //LV_Accounts.ItemsSource = model.LoadGroups();
+          
 
         }
 
-        private async void Bt_Age_Clicked(object sender, EventArgs e)
-        {
-            model.sortByAge();
-
-
-
-
-        }
-
-        private void bt_Balance_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }
