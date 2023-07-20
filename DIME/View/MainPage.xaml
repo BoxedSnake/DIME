@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DIME.MainPage">
+
+    <StackLayout>
+        <ListView x:Name="LV_Accounts"
+                 >
+     
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Picture" HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="Age"
+                            x:Name="bt_Age"
+                            Clicked="Bt_Age_Clicked"
+                           HorizontalOptions="CenterAndExpand" />
+                    <Button Text="Balance"
+                            x:Name="bt_Balance"
+                            Clicked="bt_Balance_Clicked"
+                           HorizontalOptions="EndAndExpand" />
+
+                </StackLayout>
+            </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                       
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" 
+                                     >
+                            <Label Text="{Binding Name}"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Image Source="{Binding Picture}"
+                                   HorizontalOptions="Center" />
+                            <Label Text="{Binding Age}"
+                                   HorizontalOptions="EndAndExpand" />
+                            <Label Text="{Binding AccountBalance}"
+                                   HorizontalOptions="EndAndExpand" />
+
+                        </StackLayout>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
