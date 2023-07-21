@@ -5,6 +5,7 @@ S:\P\DIME\DIME\bin\Debug\netstandard2.0\DIME.pdb
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.csproj.AssemblyReference.cache
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.GeneratedMSBuildEditorConfig.editorconfig
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\App.xaml.g.cs
+S:\P\DIME\DIME\obj\Debug\netstandard2.0\View\MainPage.xaml.g.cs
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.AssemblyInfoInputs.cache
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.AssemblyInfo.cs
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.csproj.CoreCompileInputs.cache
@@ -12,4 +13,3 @@ S:\P\DIME\DIME\obj\Debug\netstandard2.0\XamlC.stamp
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.dll
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\refint\DIME.dll
 S:\P\DIME\DIME\obj\Debug\netstandard2.0\DIME.pdb
-S:\P\DIME\DIME\obj\Debug\netstandard2.0\View\MainPage.xaml.g.cs

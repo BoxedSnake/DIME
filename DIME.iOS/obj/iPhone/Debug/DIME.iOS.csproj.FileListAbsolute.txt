@@ -1,6 +1,7 @@
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\DIME.iOS.exe
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\DIME.iOS.pdb
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
+S:\P\DIME\DIME.iOS\bin\iPhone\Debug\nunit.framework.dll
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\Xamarin.Essentials.dll
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\Xamarin.Essentials.pdb
 S:\P\DIME\DIME.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
@@ -62,4 +63,3 @@ S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.csproj.CoreCompileInputs.cache
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.csproj.CopyComplete
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.exe
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.pdb
-S:\P\DIME\DIME.iOS\bin\iPhone\Debug\nunit.framework.dll

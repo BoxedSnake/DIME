@@ -1,13 +1,10 @@
 ﻿using DIME.Model;
 using DIME.Services;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace DIME.ViewModel
 {
@@ -62,7 +59,7 @@ namespace DIME.ViewModel
 
         public List<GroupedAccount> GroupByGender()
         {
-            var source = accounts; 
+            var source = accounts;
             var groupedAccounts = source.GroupBy(a => a.Gender)
                                           .Select(group => new GroupedAccount(group.Key, group.ToList()))
                                           .ToList();

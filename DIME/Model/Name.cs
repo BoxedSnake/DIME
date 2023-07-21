@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DIME.Model
+﻿namespace DIME.Model
 {
     public class Name
     {
