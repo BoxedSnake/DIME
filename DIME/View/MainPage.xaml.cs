@@ -13,7 +13,7 @@ namespace DIME
     public partial class MainPage : ContentPage
     {
 
-        readonly MainPageModel model = new MainPageModel();
+         MainPageModel model = new MainPageModel();
         public MainPage()
         {
             InitializeComponent();
@@ -25,8 +25,7 @@ namespace DIME
         public async Task SetAccounts()
         {
             await model.GetAccounts();
-            LV_Accounts.ItemsSource = model.LoadAccounts();
-            //LV_Accounts.ItemsSource = model.LoadGroups();
+            LV_Accounts.ItemsSource = model.GroupByGender();
           
 
         }

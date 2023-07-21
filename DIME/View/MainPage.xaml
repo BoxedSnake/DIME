@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DIME.ViewModel"
              x:Class="DIME.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageModel />
+    </ContentPage.BindingContext>
 
-    <StackLayout>
+    <ContentPage.Content>
         <ListView x:Name="LV_Accounts"
-                 >
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding GroupKey}">
      
             <ListView.Header>
                 <StackLayout Orientation="Horizontal">
@@ -23,9 +28,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                        
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" 
-                                     >
+                    <ViewCell  >
+                        <StackLayout Orientation ="Horizontal" >
                             <Label Text="{Binding Name}"
                                    HorizontalOptions="StartAndExpand" />
                             <Image Source="{Binding Picture}"
@@ -40,8 +44,20 @@
                     </DataTemplate>
                     
                 </ListView.ItemTemplate>
-            
+
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10"
+                                     BackgroundColor="LightGray">
+                            <Label Text="{Binding GroupKey}"
+                                   FontAttributes="Bold" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+
         </ListView>
-    </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>

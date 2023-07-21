@@ -13,18 +13,18 @@ namespace DIME.ViewModel
 {
     public class MainPageModel
     {
-        public MainPageModel() { }
         Service service = new Service();
-        public List<Account> accounts;
-        public List<GroupedAccounts> groupedAccounts;
+        public List<Account> accounts = new List<Account> { };
+        public List<GroupedAccount> groupedAccounts = new List<GroupedAccount> { };
+        public MainPageModel() { }
 
         public async Task GetAccounts()
         {
             try
             {
                 //AccountList value = await service.GetAccounts();
-                //accounts = value.accounts.ToList();
                 accounts = await service.GetAccounts();
+                SortAccounts();
 
             }
             catch (Exception ex)
@@ -34,49 +34,43 @@ namespace DIME.ViewModel
             }
         }
 
-        public List<Account> LoadAccounts()
+        public void SortAccounts()
         {
             SortByAge();
+
             SortByBalance();
 
-            return accounts;
         }
-        public List<GroupedAccounts> LoadGroups()
-        {
-            SortByAge();
-            SortByBalance(); GroupByGender();
 
-            return groupedAccounts;
-        }
 
         public void SortByAge()
         {
             accounts.Sort((x, y) => y.Age.CompareTo(x.Age));
-        }
 
+        }
         public void SortByBalance()
         {
             accounts.Sort((x, y) => ParseCurrencyString(x.AccountBalance).CompareTo(ParseCurrencyString(y.AccountBalance)));
 
         }
 
-        public void GroupByGender()
+        public List<Account> LoadAccounts()
         {
-           var grouped = accounts.GroupBy(x => x.Gender).ToList();
-            foreach (var gender in grouped)
-            {
-                GroupedAccounts group = new GroupedAccounts();
-                group.Title = gender.Key;
-                foreach (var item in gender)
-                {
-                    group.Accounts.Add(item);
-                }
-                groupedAccounts.Add(group);
-            }
-
+            groupedAccounts = GroupByGender();
+            return accounts;
         }
 
-        public static decimal ParseCurrencyString(string currencyString)
+        public List<GroupedAccount> GroupByGender()
+        {
+            var source = accounts; 
+            var groupedAccounts = source.GroupBy(a => a.Gender)
+                                          .Select(group => new GroupedAccount(group.Key, group.ToList()))
+                                          .ToList();
+
+            return groupedAccounts;
+        }
+
+        public decimal ParseCurrencyString(string currencyString)
         {
             if (string.IsNullOrWhiteSpace(currencyString))
             {

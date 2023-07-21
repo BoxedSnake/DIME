@@ -62,3 +62,4 @@ S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.csproj.CoreCompileInputs.cache
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.csproj.CopyComplete
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.exe
 S:\P\DIME\DIME.iOS\obj\iPhone\Debug\DIME.iOS.pdb
+S:\P\DIME\DIME.iOS\bin\iPhone\Debug\nunit.framework.dll
